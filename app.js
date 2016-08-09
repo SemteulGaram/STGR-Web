@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-"user strict";
+"use strict";
 
 var port = normalizePort(process.env.PORT || '3000');
 
