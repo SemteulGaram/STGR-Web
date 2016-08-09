@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 });
 
 function analyser(obj) {
-  return typeof obj === "object") Object.getOwnPropertyNames(obj).join("\n")
+  return typeof obj === "object" ? Object.getOwnPropertyNames(obj).join("\n")
   : obj + "";
 }
 
