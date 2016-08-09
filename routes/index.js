@@ -5,7 +5,7 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', {title: 'SemteulGaram', analyse: "===request===\n" +
-  analyser(req) + "===response===\n" + analyer(res)});
+  analyser(req) + "===response===\n" + analyser(res)});
 });
 
 function analyser(obj) {
