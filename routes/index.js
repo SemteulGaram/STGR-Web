@@ -9,10 +9,8 @@ router.get('/', function(req, res, next) {
 });
 
 function analyser(obj) {
-  if(typeof obj !== "object") return obj + "";
-  let result = "";
-  for(let i in obj) result += i + ": " + obj[i];
-  return result;
+  return typeof obj === "object") Object.getOwnPropertyNames(obj).join("\n")
+  : obj + "";
 }
 
 module.exports = router;
