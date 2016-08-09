@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
 function analyser(obj) {
   if(typeof obj !== "object") return obj + "";
   let result = "";
-  obj.map(function(v, i) {result += (i + ": " + v + "\n")});
+  for(let i in obj) result += i + ": " + obj[i];
   return result;
 }
 
