@@ -5,13 +5,20 @@ var router = express.Router();
 
 router.get('/001', function(req, res, next) {
   fs.readFile(__dirname + '/public/html/001.html', function (err, data) {
-        res.writeHead(200, {
-            'Content-Type': 'text/html',
-            'Content-Length': data.length
-        });
-        res.write(data);
-        res.end();
-    });
+    if(err) {
+      res.writeHead(200, {
+          'content-type': 'text/plain'
+      });
+      res.write(__dirname + '/public/html/001.html' + "\n" + err);
+    }else {
+      res.writeHead(200, {
+          'Content-Type': 'text/html',
+          'Content-Length': data.length
+      });
+      res.write(data);
+      res.end();
+    }
+  });
 });
 
 router.post('/001',  function(req, res) {
