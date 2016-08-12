@@ -4,7 +4,7 @@ var formidable = require("formidable");
 var router = express.Router();
 
 router.get('/001', function(req, res, next) {
-  fs.readFile('/html/001.html', function (err, data) {
+  fs.readFile(__dirname + '/public/html/001.html', function (err, data) {
         res.writeHead(200, {
             'Content-Type': 'text/html',
             'Content-Length': data.length
@@ -31,3 +31,5 @@ router.post('/001',  function(req, res) {
         }));
     });
 });
+
+module.exports = router;
