@@ -9,8 +9,14 @@
   </head>
   <body>
     <a href="/html/001.html">001</a>
-    <% for(var i=0;i<analyse.length;i++){ %>
-      <p><%= analyse[i] %></p>
+    <p>===request===</p>
+    <% for(var i=0;i<analyserRequest.length;i++){ %>
+      <p><%= analyserRequest[i] %></p>
+    <% } %>
+    <br>
+    <p>===response===</p>
+    <% for(var i=0;i<analyserResponse.length;i++){ %>
+      <p><%= analyserResponse[i] %></p>
     <% } %>
   </body>
 </html>
