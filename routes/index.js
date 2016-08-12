@@ -4,7 +4,7 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', {title: 'SemteulGaram', analyse: "===request===\n" +
-  analyserParseToHtml(analyserParser(analyser(req))) + "===response===\n" + analyserParseToHtml(analyserParser(analyser(res)))});
+  analyserParseToHtml(analyserParser(analyser(req, "request", 5))) + "===response===\n" + analyserParseToHtml(analyserParser(analyser(res, "response", 5)))});
 });
 
 function ObjectInfo(type, name, obj) {
@@ -42,7 +42,7 @@ function _analyserParser(obj, depth) {
     result += "-";
   }
   if(obj.type !== "parsed-object") {
-    result += "[" + obj.type + "] " + obj.name + ": " + obj.obj;
+    result += "[" + obj.type + "] " + obj.name + ": " + objectToString(obj.obj);
   }else {
     result += "[" + obj.type + "] " + obj.name + ":" + "\n";
     for(let i = 0; i < obj.obj.length; i++) {
@@ -60,5 +60,11 @@ function analyserParseToHtml(str) {
   }
   return result;
 }
+
+function objectToString(obj) {try {
+  return "" + obj;
+}catch(err) {
+  return "UNKNOWN OBJECT"
+}}
 
 module.exports = router;
