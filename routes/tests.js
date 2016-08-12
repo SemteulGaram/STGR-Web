@@ -23,7 +23,7 @@ router.get('/001', function(req, res, next) {
   });
 });
 
-router.post('/001',  function(req, res) {
+router.post('/001',  function(req, res, next) {
   var form = new formidable.IncomingForm();
 
   form.parse(req, function (err, fields, files) {
@@ -33,11 +33,8 @@ router.post('/001',  function(req, res) {
         res.writeHead(200, {
             'content-type': 'text/plain'
         });
-        res.write('received the data:\n\n');
-        res.end(util.inspect({
-            fields: fields,
-            files: files
-        }));
+        res.write('received the data:\n\n' + fields.form1);
+        res.end();
     });
 });
 
