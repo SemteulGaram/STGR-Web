@@ -1,4 +1,3 @@
-"use strict";
 var express = require('express');
 var router = express.Router();
 
@@ -8,9 +7,49 @@ router.get('/', function(req, res, next) {
   analyser(req) + "===response===\n" + analyser(res)});
 });
 
-function analyser(obj) {
-  return typeof obj === "object" ? Object.getOwnPropertyNames(obj).join("\n")
-  : obj + "";
+function ObjectInfo(type, name, obj) {
+  this.type = type;
+  this.name = name;
+  this.obj = obj;
+}
+
+function analyser(obj, objName, maxDepth) {try{
+  if(typeof obj === "object") {
+    if(maxDepth > 1) {
+      let names = Object.getOwnPropertyNames(obj);
+      let result = [];
+      for(let i in names) {
+        result.push(analyser(obj[names[i]], names[i], maxDepth - 1));
+      }
+      return new ObjectInfo("parsed-object", objName, result);
+    }else {
+      return new ObjectInfo(typeof obj, objName, obj);
+    }
+  }else {
+    return new ObjectInfo(typeof obj, objName, obj);
+  }
+}catch(err) {
+  return new ObjectInfo("Error-" + typeof obj, objName, err)
+}}
+
+function analyserParser(obj) {
+  return _analyserParser(obj, 0);
+}
+
+function _analyserParser(obj, depth) {
+  let result = "";
+  for(let i = 0; i < depth; i++) {
+    result += "-";
+  }
+  if(obj.type !== "parsed-object") {
+    result += "[" + obj.type + "] " + obj.name + ": " + obj.obj;
+  }else {
+    result += "[" + obj.type + "] " + obj.name + ":" + "\n";
+    for(let i = 0; i < obj.obj.length; i++) {
+      result += _analyserParser(obj.obj[i], depth + 1) + "\n";
+    }
+  }
+  return result;
 }
 
 module.exports = router;
