@@ -4,7 +4,7 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', {title: 'SemteulGaram', analyse: "===request===\n" +
-  analyser(req) + "===response===\n" + analyser(res)});
+  analyserParseToHtml(analyserParser(analyser(req))) + "===response===\n" + analyserParseToHtml(analyserParser(analyser(res)))});
 });
 
 function ObjectInfo(type, name, obj) {
@@ -48,6 +48,15 @@ function _analyserParser(obj, depth) {
     for(let i = 0; i < obj.obj.length; i++) {
       result += _analyserParser(obj.obj[i], depth + 1) + "\n";
     }
+  }
+  return result;
+}
+
+function analyserParseToHtml(str) {
+  let lines = str.split("\n");
+  let result = "";
+  for(let i in lines) {
+    result += ("<p>" + lines[i] + "</p>\n");
   }
   return result;
 }
