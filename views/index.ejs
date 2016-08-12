@@ -9,6 +9,8 @@
   </head>
   <body>
     <a href="/html/001.html">001</a>
-    <p><%= analyse %></p>
+    <% for(var i=0;i<analyse.length;i++){ %>
+      <p><%= analyse[i] %></p>
+    <% } %>
   </body>
 </html>
