@@ -10,6 +10,7 @@ router.get('/001', function(req, res, next) {
           'content-type': 'text/plain'
       });
       res.write(__dirname + '/public/html/001.html' + "\n" + err);
+      res.end();
     }else {
       res.writeHead(200, {
           'Content-Type': 'text/html',
