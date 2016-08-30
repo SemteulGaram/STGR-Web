@@ -3,9 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', {title: 'SemteulGaram',
-  analyserRequest: analyserParser(analyser(req, "request", 5)).split("\n"),
-  analyserResponse: analyserParser(analyser(res, "response", 5)).split("\n")});
+  res.render('index', {title: 'test'});
 });
 
 function ObjectInfo(type, name, obj) {

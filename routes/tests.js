@@ -24,9 +24,12 @@ router.get('/001', function(req, res, next) {
 });
 
 router.post('/001',  function(req, res, next) {
+
   var form = new formidable.IncomingForm();
+  console.log("test");
 
   form.parse(req, function (err, fields, files) {
+
         //Store the data from the fields in your data store.
         //The data store could be a file or database or any other store based
         //on your application.
@@ -36,6 +39,22 @@ router.post('/001',  function(req, res, next) {
         res.write('received the data:\n\n' + fields.form1);
         res.end();
     });
+    
+  // res.writeHead(200, {
+  //          'content-type': 'text/plain'
+  //      });
+  // res.write('data : ' + req.body.form1);
+  // res.end();
+
+  // let form = new formidable.ImcomingForm();
+  //
+  //
+  // res.writeHead(200, {
+  //   "Content-Type": "text/html",
+  //   "Content-Length": data.length
+  // });
+  // res.write();
+  // res.end();
 });
 
 module.exports = router;

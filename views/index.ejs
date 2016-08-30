@@ -2,21 +2,36 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="theme-color" content="#333333">
+    <meta name="theme-color" content="#333333"> <!--For Mobile Chrome-->
     <title><%= title %></title>
     <link rel="stylesheet" href="/stylesheets/style.css">
-    <link rel=icon href="">
+    <!--link rel=icon href=""-->
+    <script src="https://use.fontawesome.com/17896623df.js"></script>
   </head>
   <body>
-    <a href="/test/001">001</a>
-    <p>===request===</p>
-    <% for(var i=0;i<analyserRequest.length;i++){ %>
-      <p><%= analyserRequest[i] %></p>
-    <% } %>
-    <br>
-    <p>===response===</p>
-    <% for(var i=0;i<analyserResponse.length;i++){ %>
-      <p><%= analyserResponse[i] %></p>
-    <% } %>
+    <header class="bc-teal">
+      <p class="title"><span style="color:#ff0000">궁극기 </span>팩트 폭격 <i class="fa fa-bomb"></i></p>
+    </header>
+    <div class="menu-box">
+      <a href=".">
+        <div id="menu-notice" class="menu-button">
+          <i class="fa fa-newspaper-o fac-menu-button" aria-hidden="true" style="font-size:250px"></i>
+          <p class="menu-button-title">Notice</p>
+        </div>
+      </a>
+      <div id="menu-blog" class="menu-button">
+        <a href=".">
+          <i class="fa fa-pencil-square-o fac-menu-button" aria-hidden="true" style="font-size:250px"></i>
+          <p class="menu-button-title">Blog</p>
+        </a>
+      </div>
+      <div id="menu-cloud" class="menu-button">
+        <a href=".">
+          <i class="fa fa-cloud fac-menu-button" aria-hidden="true" style="font-size:250px"></i>
+          <p class="menu-button-title">Cloud</p>
+        </a>
+      </div>
+    </div>
+    <a class="a-origin" href="/test/001" style="font-size:32px">테스트001로 이동</a>
   </body>
 </html>
