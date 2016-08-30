@@ -52,7 +52,8 @@ if (app.get('env') === 'development') {
     res.status(err.status || 500);
     res.render('error', {
       message: err.message,
-      error: err
+      error: err,
+      test: req.baseUrl + " " + req.hostname + " " + req.originalUrl + " " + req.ip
     });
   });
 }else {
