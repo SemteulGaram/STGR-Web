@@ -2,36 +2,44 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta name="theme-color" content="#333333"> <!--For Mobile Chrome-->
     <title><%= title %></title>
+    <!--[if lt IE 9]>
+      <script type="text/javascript" src="/scripts/respond.min.js"></script>
+    <![endif]-->
+
     <link rel="stylesheet" href="/stylesheets/style.css">
     <!--link rel=icon href=""-->
     <script src="https://use.fontawesome.com/17896623df.js"></script>
   </head>
   <body>
     <header class="bc-teal">
-      <p class="title"><span style="color:#ff0000">궁극기 </span>팩트 폭격 <i class="fa fa-bomb"></i></p>
+      <p class="title">셈틀가람</p>
     </header>
     <div class="menu-box">
       <a href=".">
         <div id="menu-notice" class="menu-button">
-          <i class="fa fa-newspaper-o fac-menu-button" aria-hidden="true" style="font-size:250px"></i>
+          <i class="fa fa-newspaper-o fac-menu-button" aria-hidden="true" style="font-size:200px"></i>
           <p class="menu-button-title">Notice</p>
         </div>
       </a>
-      <div id="menu-blog" class="menu-button">
-        <a href=".">
-          <i class="fa fa-pencil-square-o fac-menu-button" aria-hidden="true" style="font-size:250px"></i>
+      <a href=".">
+        <div id="menu-blog" class="menu-button">
+          <i class="fa fa-pencil-square-o fac-menu-button" aria-hidden="true" style="font-size:200px"></i>
           <p class="menu-button-title">Blog</p>
-        </a>
-      </div>
-      <div id="menu-cloud" class="menu-button">
-        <a href=".">
-          <i class="fa fa-cloud fac-menu-button" aria-hidden="true" style="font-size:250px"></i>
-          <p class="menu-button-title">Cloud</p>
-        </a>
-      </div>
+        </div>
+      </a>
+      <a href=".">
+        <div id="menu-cloud" class="menu-button">
+          <i class="fa fa-download fac-menu-button" aria-hidden="true" style="font-size:200px"></i>
+          <p class="menu-button-title">Download</p>
+        </div>
+      </a>
     </div>
-    <a class="a-origin" href="/test/001" style="font-size:32px">테스트001로 이동</a>
+    <a class="a-origin" href="/test/001" style="font-size:32px">Go to TEST001</a>
+    <br>
+    <br>
+    <p style="font-size:32px">This site is hosting at <a class="a-origin" href="http://semteul.com">Semteul.com</a></p>
   </body>
 </html>
