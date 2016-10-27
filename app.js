@@ -1,13 +1,16 @@
 #!/usr/bin/env node
 
 var port = normalizePort(process.env.PORT || '3000');
+var runType = process.env.TYPE || 'normal'; //normal, dev
 
 var express = require('express');
+var vhost = require('vhost');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
 var debug = require('debug')('exp:server');
 var http = require('http');
 
