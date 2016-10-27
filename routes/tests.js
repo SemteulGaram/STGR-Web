@@ -1,6 +1,5 @@
 var express = require('express');
 var fs = require('fs');
-var formidable = require("formidable");
 var util = require('util');
 var router = express.Router();
 
@@ -39,7 +38,7 @@ router.post('/001',  function(req, res, next) {
         res.write('received the data:\n\n' + fields.form1);
         res.end();
     });
-    
+
   // res.writeHead(200, {
   //          'content-type': 'text/plain'
   //      });
@@ -55,6 +54,19 @@ router.post('/001',  function(req, res, next) {
   // });
   // res.write();
   // res.end();
+});
+
+router.get('/login', function(req, res, next) {
+  res.render('tlogin', {});
+});
+
+router.post('/login', function(req, res, next) {
+  console.log(req.body);
+  res.writeHead(200, {
+    'content-type': 'text/plan'
+  });
+  res.write('id: ' + req.body.id + " / pw: " + req.body.pw);
+  res.end();
 });
 
 module.exports = router;
